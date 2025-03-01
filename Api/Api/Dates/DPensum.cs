@@ -23,7 +23,7 @@ internal class DPensum{
                         pensum.Creditos_Asignatura = items.GetInt32(3);
                         pensum.Prerequisitos = DBNull.Value.Equals(items[4]) ? null : items.GetString(4);
                         pensum.Correquisitos = DBNull.Value.Equals(items[5]) ? null : items.GetString(5);
-                        pensum.Creditos_Minimos_Requeridos = DBNull.Value.Equals(items[6]) ? null : items.Getint(6);
+                        pensum.Creditos_Minimos_Requeridos = DBNull.Value.Equals(items[6]) ? null : items.GetInt32(6);
                         list.Add(pensum);
                     }
                     
