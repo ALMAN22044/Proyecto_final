@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/pryapi/pensum": {
+      "get": {
+        "tags": [
+          "Pensum"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPensum"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPensum"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPensum"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MPensum": {
+        "type": "object",
+        "properties": {
+          "trimestre": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codigo_Asignatura": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombre_Asignatura": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditos_Asignatura": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prerequisitos": {
+            "type": "string",
+            "nullable": true
+          },
+          "correquisitos": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditos_Minimos_Requeridos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

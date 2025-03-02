@@ -1,17 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Api.Date;
+using Api.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("api/Pensum")]
+    [Route("pryapi/pensum")]
     public class PensumController : Controller
     {
-        DPensum Function = new DPensum();
+        DPensum function = new DPensum();
+
         [HttpGet]
-        public async Task<ActionResult> Get()    
-        {
-            var result = await Function.Get();
-            return Ok(result);
+        public async Task<ActionResult<List<MPensum>>> GetPensum() { 
+
+            var result = await function.GetPensum();
+            return result;
         }
     }
 }
