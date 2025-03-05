@@ -2,7 +2,7 @@
   {
     "ContainingType": "Api.Controllers.PensumController",
     "Method": "GetPensum",
-    "RelativePath": "pryapi/pensum",
+    "RelativePath": "api/pensum",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -10,6 +10,32 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[Api.Models.MPensum, Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Api.Controllers.LoginController",
+    "Method": "Post",
+    "RelativePath": "Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "parameters",
+        "Type": "Api.Models.MLogin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Api.Models.MEstudiantes, Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

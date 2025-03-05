@@ -12,7 +12,7 @@ namespace Api.Date
             var list = new List<MPensum>();
             using (var sql = new SqlConnection(cn))
             {
-                using (var cmd = new SqlCommand("Pensum", sql))
+                using (var cmd = new SqlCommand("RPensum", sql))
                 {
                    
                     await sql.OpenAsync();

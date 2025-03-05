@@ -6,7 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 namespace Api.Controllers
 {
     [ApiController]
-    [Route("pryapi/pensum")]
+    [Route("api/pensum")]
     public class PensumController : Controller
     {
         DPensum function = new DPensum();
@@ -15,6 +15,7 @@ namespace Api.Controllers
         public async Task<ActionResult<List<MPensum>>> GetPensum() { 
 
             var result = await function.GetPensum();
+         
             return result;
         }
     }

@@ -5,7 +5,64 @@
     "version": "1.0"
   },
   "paths": {
-    "/pryapi/pensum": {
+    "/Login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MLogin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MLogin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MEstudiantes"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MEstudiantes"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MEstudiantes"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pensum": {
       "get": {
         "tags": [
           "Pensum"
@@ -46,34 +103,74 @@
   },
   "components": {
     "schemas": {
+      "MEstudiantes": {
+        "type": "object",
+        "properties": {
+          "EstudianteId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "Matricula": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProgramaID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Contraseña": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MLogin": {
+        "type": "object",
+        "properties": {
+          "Matricula": {
+            "type": "string",
+            "nullable": true
+          },
+          "Password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "MPensum": {
         "type": "object",
         "properties": {
-          "trimestre": {
+          "Trimestre": {
             "type": "integer",
             "format": "int32"
           },
-          "codigo_Asignatura": {
+          "Codigo_Asignatura": {
             "type": "string",
             "nullable": true
           },
-          "nombre_Asignatura": {
+          "Nombre_Asignatura": {
             "type": "string",
             "nullable": true
           },
-          "creditos_Asignatura": {
+          "Creditos_Asignatura": {
             "type": "integer",
             "format": "int32"
           },
-          "prerequisitos": {
+          "Prerequisitos": {
             "type": "string",
             "nullable": true
           },
-          "correquisitos": {
+          "Correquisitos": {
             "type": "string",
             "nullable": true
           },
-          "creditos_Minimos_Requeridos": {
+          "Creditos_Minimos_Requeridos": {
             "type": "integer",
             "format": "int32",
             "nullable": true
