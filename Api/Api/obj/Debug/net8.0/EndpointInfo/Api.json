@@ -37,7 +37,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MEstudiantes"
+                    "$ref": "#/components/schemas/MLoginResult"
                   }
                 }
               },
@@ -45,7 +45,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MEstudiantes"
+                    "$ref": "#/components/schemas/MLoginResult"
                   }
                 }
               },
@@ -53,7 +53,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MEstudiantes"
+                    "$ref": "#/components/schemas/MLoginResult"
                   }
                 }
               }
@@ -92,6 +92,55 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/MPensum"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Presupuesto/{ID}": {
+      "get": {
+        "tags": [
+          "Presupuesto"
+        ],
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPresupuesto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPresupuesto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPresupuesto"
                   }
                 }
               }
@@ -143,6 +192,23 @@
         },
         "additionalProperties": false
       },
+      "MLoginResult": {
+        "type": "object",
+        "properties": {
+          "Estudiantes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MEstudiantes"
+            },
+            "nullable": true
+          },
+          "Token": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "MPensum": {
         "type": "object",
         "properties": {
@@ -174,6 +240,83 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MPresu": {
+        "type": "object",
+        "properties": {
+          "Trimestre": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Codigo_Asignatura": {
+            "type": "string",
+            "nullable": true
+          },
+          "Nombre_Asignatura": {
+            "type": "string",
+            "nullable": true
+          },
+          "Creditos_Asignatura": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Dificultad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Prerequisitos": {
+            "type": "string",
+            "nullable": true
+          },
+          "Correquisitos": {
+            "type": "string",
+            "nullable": true
+          },
+          "Creditos_Minimos_Requeridos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Costo_Asignatura": {
+            "type": "number",
+            "format": "double"
+          },
+          "Total_Creditos": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MPresupuesto": {
+        "type": "object",
+        "properties": {
+          "Trimestres": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Trimestre"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Trimestre": {
+        "type": "object",
+        "properties": {
+          "Asignaturas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MPresu"
+            },
+            "nullable": true
+          },
+          "TotalCreditos": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

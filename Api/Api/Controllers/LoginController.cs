@@ -11,11 +11,11 @@ namespace Api.Controllers
     {
 
         [HttpPost]
-        public async Task<ActionResult<List<MEstudiantes>>> Post([FromBody] MLogin parameters)
+        public async Task<ActionResult<List<MLoginResult>>> Post([FromBody] MLogin parameters)
         {
             var function = new  DLogin();
             var result = await function.Login(parameters);
-            if (result == null)
+            if (result == null) 
                 return BadRequest("Usuario/Contraseña Incorrecta");
             else
                 return Ok(result);
