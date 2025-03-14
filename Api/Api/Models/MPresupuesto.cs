@@ -11,6 +11,7 @@ namespace Api.Models
     {
         public List<MPresu> Asignaturas { get; set; } = new List<MPresu>();
         public int TotalCreditos { get; set; }
+        public decimal TotalCosto { get; set; }
     }
 
     public class MPresu

@@ -27,7 +27,7 @@ namespace Api.Date
                             pensum.Creditos_Asignatura = (int)dr[3];
                             pensum.Prerequisitos = dr[4] as string;
                             pensum.Correquisitos = dr[5] as string;
-                            pensum.Creditos_Minimos_Requeridos = dr[6] as int?;
+                            pensum.Nota = dr[6] as string;
                             list.Add(pensum);
                         }
                     }

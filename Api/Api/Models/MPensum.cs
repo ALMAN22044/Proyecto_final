@@ -8,6 +8,6 @@
         public int Creditos_Asignatura { get; set; }
         public string? Prerequisitos { get; set; }
         public string? Correquisitos { get; set; }
-        public int? Creditos_Minimos_Requeridos { get; set; }
+        public string? Nota { get; set; }
     }
 }

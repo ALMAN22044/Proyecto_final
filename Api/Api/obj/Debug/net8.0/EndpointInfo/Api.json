@@ -100,7 +100,7 @@
         }
       }
     },
-    "/Presupuesto/{ID}": {
+    "/Presupuesto/{ID}/{tri}": {
       "get": {
         "tags": [
           "Presupuesto"
@@ -113,6 +113,71 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "tri",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPresupuesto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPresupuesto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPresupuesto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Presupuesto": {
+      "get": {
+        "tags": [
+          "Presupuesto"
+        ],
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Presupuesto",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
             }
           }
         ],
@@ -236,9 +301,8 @@
             "type": "string",
             "nullable": true
           },
-          "Creditos_Minimos_Requeridos": {
-            "type": "integer",
-            "format": "int32",
+          "Nota": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -317,6 +381,10 @@
           "TotalCreditos": {
             "type": "integer",
             "format": "int32"
+          },
+          "TotalCosto": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
