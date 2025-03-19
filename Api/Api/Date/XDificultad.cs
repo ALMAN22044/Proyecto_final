@@ -248,7 +248,7 @@ namespace Api.Date
 
                 if (suma + item.Costo_Asignatura < presupuesto && tri != item.Trimestre && presupuesto < 115000)
                 {
-                    foreach (var i in Pensum.Where(x => x.Trimestre == item.Trimestre && item.Trimestre > 1).OrderBy(x => x.Trimestre).ThenByDescending(x => x.Costo_Asignatura))
+                    foreach (var i in Pensum.Where(x => x.Trimestre > item.Trimestre && item.Trimestre > 1).OrderBy(x => x.Trimestre).ThenByDescending(x => x.Costo_Asignatura))
                     {
                         i.Trimestre -= 1;
                     }
